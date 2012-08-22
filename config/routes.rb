@@ -2,6 +2,9 @@ Moviehop::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+#root the application root to /movies
+    root :to => "movies#index"
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -17,8 +20,7 @@ Moviehop::Application.routes.draw do
       resources :trailers   #trailers from the movie
     end
 
-    #root the application root to /movies
-    root :to => "home#movies"
+    
 
   # Sample resource route with options:
   #   resources :products do
