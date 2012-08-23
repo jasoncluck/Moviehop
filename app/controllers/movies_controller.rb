@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+	#before filter for tMDB key auth
+	before_filter :require_tMDB_key
+
 	def index
 		@title = "Inception"
 		all_movies = Movie.all
@@ -15,4 +18,10 @@ class MoviesController < ApplicationController
 			end
 		end
 	end
+
+
+	def require_tMDB_key
+		
+	end
+
 end
