@@ -1,4 +1,6 @@
 class Picture < ActiveRecord::Base
 	belongs_to :movie
-	attr_accessible :movie_title, :url
+	#allow access of url through movies objec
+	attr_accessible :address, :movie
+
 end

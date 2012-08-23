@@ -54,17 +54,7 @@
       <% end %>
     </div>
     <div class="span10">
-      <!--body content-->
-      <!--split into span4 components - each having a movie-->
-        <% @current_movies.each do |movie| %>
-        <div class="row-fluid">
-        <div class="span4">
-          <h3><%= "#{movie.title}" %></h3>
-          <%= "Rating: #{movie.rating}" %><br>
-          <%= "Showtimes: 1:00, 3:00, 5:00, 7:00, 9:00" %><br><br>
-        </div>
-        <% end %>  
-      </div>
+      <%= yield %>
     </div>
   </div>
 </div>

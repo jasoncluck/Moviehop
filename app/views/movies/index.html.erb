@@ -1,0 +1,21 @@
+<!--body content-->
+      <!--split into span4 components - each having a movie-->
+        <% @current_movies.each do |movie| %>
+          <div class="row-fluid">
+            <div class="span4">
+             <h3><center><%= "#{movie.title}" %></center></h3>
+                <% @pictures.each do |picture| %>
+                    <% if picture.movie_id == movie.id %>
+                        <center><%= image_tag("#{picture.address}", :size =>"250x300" )%></center>
+                    <% end %>
+                <% end %>
+                <br>
+                <!--span offset-->
+                <div class="span2">
+                </div>
+                <%= "Rating: #{movie.rating}" %><br>
+                <%= "Showtimes: 1:00, 3:00, 5:00, 7:00, 9:00" %>
+                <br><br><br>
+            </div>
+        <% end %>  
+        </div>
