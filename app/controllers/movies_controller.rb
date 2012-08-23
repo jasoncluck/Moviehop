@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
 	before_filter :require_tMDB_key
 
 	def index
-		@title = "Inception"
 		all_movies = Movie.all
 		all_movies = all_movies.sort { |a, b| a.title <=> b.title }
 		#create arrays for current movies and upcoming movies
@@ -21,7 +20,7 @@ class MoviesController < ApplicationController
 
 
 	def require_tMDB_key
-		
+
 	end
 
 end
