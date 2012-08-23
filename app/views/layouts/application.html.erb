@@ -9,6 +9,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/boostrap-responsive.css" rel="stylesheet">
 </head>
 <body>
 <!--TODO: Add Logo here-->
@@ -26,7 +27,7 @@
         <ul class="nav">
           <li><%= link_to "Browse Movies", movies_path %></li>
           <li><%= link_to "Movies" %></li>
-          <li><%= link_to "Tickets" %></li>
+          <li><%= link_to "Tickets", "https://tickets.landmarktheatres.com/Ticketing.aspx?TheatreID=264" %></li>
           <li><%= link_to "Bar & Concessions" %></li>
           <li><%= link_to "Location and About"%></li>
         </ul>
@@ -34,18 +35,34 @@
     </div>
   </div>
 </div>
-<!--side bar-->	
+<!--side bar--> 
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
       <!--Sidebar content-->
       <h3><u>Current Movies</u></h3>
       <!-- list all the current movies here-->
+      <% @current_movies.each do |movie| %>
+        <%= link_to "#{movie.title}", movies_path %>
+        <br>
+      <% end %>
       <h3><u>Upcoming Movies</u></h3>
+      <!-- list all the upcoming movies here-->
+      <% @upcoming_movies.each do |movie| %>
+        <%= link_to "#{movie.title}", movies_path %>
+        <br>
+      <% end %>
     </div>
     <div class="span10">
       <!--body content-->
-      goose foos lorem ipsum blah
+      <!--split into span4 components - each having a movie-->
+      <div class="row-fluid">
+        <% @current_movies.each do |movie| %>
+        <div class="span4"
+          <h3><%= "#{movie.title}" %></h3>
+        </div>
+        <% end %>  
+      </div>
     </div>
   </div>
 </div>
