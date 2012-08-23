@@ -6,9 +6,13 @@
              <h3><center><%= "#{movie.title}" %></center></h3>
                 <% @pictures.each do |picture| %>
                     <% if picture.movie_id == movie.id %>
-                        <center><%= image_tag("#{picture.address}", :size =>"250x300" )%></center>
+                        <center><%= image_tag("#{picture.address}", :size =>"250x300" )%></center>       
                     <% end %>
                 <% end %>
+                <br>
+                    <center>
+                        <a href=<%= "#{movies_path(movie.id)}" %> class="btn btn-primary ">Learn More</a>
+                    </center>
                 <br>
                 <!--span offset-->
                 <div class="span2">

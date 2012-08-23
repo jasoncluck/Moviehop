@@ -7,7 +7,6 @@ gem 'rails', '3.2.6'
 
 
 gem 'capybara'
-gem 'haml'
 gem 'factory_girl_rails'
 gem 'ruby-tmdb'
 

@@ -39,6 +39,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
+      <div class="well sidebar-nav sidebar-nav-fixed">
       <!--Sidebar content-->
       <h3><u>Current Movies</u></h3>
       <!-- list all the current movies here-->
@@ -52,7 +53,8 @@
         <%= link_to "#{movie.title}", movies_path %>
         <br>
       <% end %>
-    </div>
+    </div> <!--well-->
+    </div> <!--span2-->
     <div class="span10">
       <%= yield %>
     </div>

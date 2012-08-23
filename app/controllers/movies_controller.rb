@@ -22,6 +22,14 @@ class MoviesController < ApplicationController
 		end
 	end
 
+	#once a user clicks on a particular movie
+	def show
+		params = params[:id];		#get the movie id
+		movie = Movie.find_by_id(params) 	#get the movie from the database
+
+
+	end
+
 
 	def require_tMDB_key
 
