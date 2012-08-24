@@ -2,8 +2,8 @@
 <!--split into span4 components - each having a movie-->
 <div class="hero-unit">
 	<div class="row-fluid">
-	  	<div class="span4"><h1><%= "#{@movie.title}" %></h1>
-  		<div class="span9"><p>Tagline goes here!</p>
+	  	<div class="span4 maintext"><h1><%= "  	#{@movie.title}" %></h1>
+  		<div class="span12 maintext"><p>Tagline goes here herp derp</p>
 		  		<p>
 		  			<!--modal unit-->
 		  			<div id="Trailer" class="modal hide fade">
@@ -13,7 +13,7 @@
 				        </div>
 				        <div class="modal-body">
 			          		<!--trailer-->
-			          		<center>
+			          		
 			          			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 						    	<div id="player"></div>
 
@@ -59,26 +59,27 @@
 
 						    </script>
 
-						</center>
+						
 							<!--end trailer-->
 				        </div><!--model body-->
 				        <div class="modal-footer">
 				          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 				        </div>
 				      </div><!--model id-->
-				      <div class="span8">
-				      	<a data-toggle="modal" href="#Trailer" class="btn btn-primary btn-large">Watch the Trailer</a>
-				      		<div class="span4">
-				      			Show
+				      <div class="span11">
+				      	<a data-toggle="modal" href="#Trailer" class="btn">Watch the Trailer</a>
+				      		<div class="span12 maintext"><br>
+				      			<h4><%="Rating: #{@movie.rating}" %></h4>
+				      			<h4>Showtimes: 1:00, 3:00, 5:00, 7:00, 9:00</h4>
 				      		</div>
 				      </div> <!-- span for Watch the Trailer-->
 				  </div> <!--span for tag-->
 				</div> <!--span for title-->
 		      	<br>
 				
-				<div class="span8"> 
-  					<%= image_tag("#{@pictures.address}")%>
-  				</div>
+				<div class="span8">
+  					<%= image_tag("#{@pictures.address}", :size => "500x300")%>
+   				</div>
   			</div>   <!-- row-fluid-->  
   		</p>
 </div> <!--hero unit--> 
