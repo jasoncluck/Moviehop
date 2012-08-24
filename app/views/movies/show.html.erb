@@ -1,74 +1,84 @@
 <!--body content-->
 <!--split into span4 components - each having a movie-->
-        
-  <div class="row-fluid">
-    <!--Add in a hero unit-->
-    <div class="hero-unit">
-	  	<h1><%= "#{@movie.title}" %></h1>
-	  		<p>Tagline goes here!</p>
-	  		<p>
-	  			<div id="myModal" class="modal hide fade">
-			        <div class="modal-header">
-			          <a class="close" data-dismiss="modal" >&times;</a>
-			          <h3><%= "#{@movie.title} Trailer" %></h3>
-			        </div>
-			        <div class="modal-body">
-		          		<!--trailer-->
-		          		<center>
-		          			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-					    	<div id="player"></div>
+<div class="hero-unit">
+	<div class="row-fluid">
+	  	<div class="span4"><h1><%= "#{@movie.title}" %></h1>
+  		<div class="span9"><p>Tagline goes here!</p>
+		  		<p>
+		  			<!--modal unit-->
+		  			<div id="Trailer" class="modal hide fade">
+				        <div class="modal-header">
+				          <a class="close" data-dismiss="modal" >&times;</a>
+				          <h3><%= "#{@movie.title} Trailer" %></h3>
+				        </div>
+				        <div class="modal-body">
+			          		<!--trailer-->
+			          		<center>
+			          			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+						    	<div id="player"></div>
 
-					    	<script>
-					      	// 2. This code loads the IFrame Player API code asynchronously.
-					      	var tag = document.createElement('script');
-					      	tag.src = "//www.youtube.com/iframe_api";
-					      	var firstScriptTag = document.getElementsByTagName('script')[0];
-					      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+						    	<script>
+						      	// 2. This code loads the IFrame Player API code asynchronously.
+						      	var tag = document.createElement('script');
+						      	tag.src = "//www.youtube.com/iframe_api";
+						      	var firstScriptTag = document.getElementsByTagName('script')[0];
+						      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-					      	// 3. This function creates an <iframe> (and YouTube player)
-					      	//    after the API code downloads.
-					      	var player;
-					      	function onYouTubeIframeAPIReady() {
-					        	player = new YT.Player('player', {
-					          	height: '390',
-					          	width: '640',
-					          	videoId: 'u1zgFlCw8Aw',
-					          	events: {
-					            	'onReady': onPlayerReady,
-					            	'onStateChange': onPlayerStateChange
-					          		}
-					        	});
-					      	}
+						      	// 3. This function creates an <iframe> (and YouTube player)
+						      	//    after the API code downloads.
+						      	var player;
+						      	function onYouTubeIframeAPIReady() {
+						        	player = new YT.Player('player', {
+						          	height: '390',
+						          	width: '640',
+						          	videoId: 'u1zgFlCw8Aw',
+						          	events: {
+						            	'onReady': onPlayerReady,
+						            	'onStateChange': onPlayerStateChange
+						          		}
+						        	});
+						      	}
 
-					      	// function for when the video is ready
-					      	function onPlayerReady(event) {
-					        
-					      	}
+						      	// function for when the video is ready
+						      	function onPlayerReady(event) {
+						        
+						      	}
 
-					      	// 5. The API calls this function when the player's state changes.
-					      	//    The function indicates that when playing a video (state=1),
-					      	//    the player should play for six seconds and then stop.
-					      	var done = false;
-					      	function onPlayerStateChange(event) {
-					        	if (event.data == YT.PlayerState.PLAYING && !done) {
-					          		done = true;
-					        	}
-					      	}
-					       	$('#myModal').on('hide', function () {
-								player.stopVideo();
-						   	})
+						      	// 5. The API calls this function when the player's state changes.
+						      	//    The function indicates that when playing a video (state=1),
+						      	//    the player should play for six seconds and then stop.
+						      	var done = false;
+						      	function onPlayerStateChange(event) {
+						        	if (event.data == YT.PlayerState.PLAYING && !done) {
+						          		done = true;
+						        	}
+						      	}	
+						       	$('#Trailer').on('hide', function () {
+									player.stopVideo();
+							   	})
 
-					    </script>
+						    </script>
 
-					</center>
-						<!--end trailer-->
-			        </div>
-			        <div class="modal-footer">
-			          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			        </div>
-			      </div>
-			      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Watch the Trailer</a>
-			      
-	  		</p>
-	</div>  
-</div>
+						</center>
+							<!--end trailer-->
+				        </div><!--model body-->
+				        <div class="modal-footer">
+				          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				        </div>
+				      </div><!--model id-->
+				      <div class="span8">
+				      	<a data-toggle="modal" href="#Trailer" class="btn btn-primary btn-large">Watch the Trailer</a>
+				      		<div class="span4">
+				      			Show
+				      		</div>
+				      </div> <!-- span for Watch the Trailer-->
+				  </div> <!--span for tag-->
+				</div> <!--span for title-->
+		      	<br>
+				
+				<div class="span8"> 
+  					<%= image_tag("#{@pictures.address}")%>
+  				</div>
+  			</div>   <!-- row-fluid-->  
+  		</p>
+</div> <!--hero unit--> 

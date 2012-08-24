@@ -34,7 +34,22 @@ class MoviesController < ApplicationController
 		id = params[:id];				#get the movie id
 		@movie = Movie.find_by_id(id) 	#get the movie from the database
 
-		@show_trailer = false			#initialize to false - this will be respond via the trailer button
+		#get the pictures and the trailers for this particular movie
+		@pictures = Array.new 
+		@trailers = Array.new 
+
+		Picture.all.each do |picture|
+			if @movie.id == picture.movie_id
+				@pictures << picture
+			end
+		end
+		@pictures = @pictures.last
+		#currently only 1 trailer should be assigned to a movie
+		Trailer.all.each do |trailer|
+			if @movie_id == trailer.movie_id
+				@trailers << trailer
+			end
+		end
 
 	end
 
