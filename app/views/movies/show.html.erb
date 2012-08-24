@@ -1,3 +1,8 @@
+<!--create a javascript variable that is equal to the YT_id-->
+<%= javascript_tag do %>
+  YT_id = '<%= j @trailers.address %>';
+<% end %>
+
 <!--body content-->
 <!--split into span4 components - each having a movie-->
 <div class="hero-unit">
@@ -5,67 +10,7 @@
 	  	<div class="span4 maintext"><h1><%= "  	#{@movie.title}" %></h1>
   		<div class="span12 maintext"><p>Tagline goes here herp derp</p>
 		  		<p>
-		  			<!--modal unit-->
-		  			<div id="Trailer" class="modal hide fade">
-				        <div class="modal-header">
-				          <a class="close" data-dismiss="modal" >&times;</a>
-				          <h3><%= "#{@movie.title} Trailer" %></h3>
-				        </div>
-				        <div class="modal-body">
-			          		<!--trailer-->
-			          		
-			          			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-						    	<div id="player"></div>
-
-						    	<script>
-						      	// 2. This code loads the IFrame Player API code asynchronously.
-						      	var tag = document.createElement('script');
-						      	tag.src = "//www.youtube.com/iframe_api";
-						      	var firstScriptTag = document.getElementsByTagName('script')[0];
-						      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-						      	// 3. This function creates an <iframe> (and YouTube player)
-						      	//    after the API code downloads.
-						      	var player;
-						      	function onYouTubeIframeAPIReady() {
-						        	player = new YT.Player('player', {
-						          	height: '390',
-						          	width: '640',
-						          	videoId: 'u1zgFlCw8Aw',
-						          	events: {
-						            	'onReady': onPlayerReady,
-						            	'onStateChange': onPlayerStateChange
-						          		}
-						        	});
-						      	}
-
-						      	// function for when the video is ready
-						      	function onPlayerReady(event) {
-						        
-						      	}
-
-						      	// 5. The API calls this function when the player's state changes.
-						      	//    The function indicates that when playing a video (state=1),
-						      	//    the player should play for six seconds and then stop.
-						      	var done = false;
-						      	function onPlayerStateChange(event) {
-						        	if (event.data == YT.PlayerState.PLAYING && !done) {
-						          		done = true;
-						        	}
-						      	}	
-						       	$('#Trailer').on('hide', function () {
-									player.stopVideo();
-							   	})
-
-						    </script>
-
-						
-							<!--end trailer-->
-				        </div><!--model body-->
-				        <div class="modal-footer">
-				          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-				        </div>
-				      </div><!--model id-->
+		  			
 				      <div class="span11">
 				      	<a data-toggle="modal" href="#Trailer" class="btn">Watch the Trailer</a>
 				      		<div class="span12 maintext"><br>
@@ -83,3 +28,69 @@
   			</div>   <!-- row-fluid-->  
   		</p>
 </div> <!--hero unit--> 
+
+
+
+
+
+<!--modal unit-->
+<div id="Trailer" class="modal hide fade">
+<div class="modal-header">
+  <a class="close" data-dismiss="modal" >&times;</a>
+  <h3><%= "#{@movie.title} Trailer" %></h3>
+</div>
+<div class="modal-body">
+		<!--trailer-->
+		
+			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    	<div id="player"></div>
+
+    	<script>
+      	// 2. This code loads the IFrame Player API code asynchronously.
+      	var tag = document.createElement('script');
+      	tag.src = "//www.youtube.com/iframe_api";
+      	var firstScriptTag = document.getElementsByTagName('script')[0];
+      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      	// 3. This function creates an <iframe> (and YouTube player)
+      	//    after the API code downloads.
+      	var player;
+      	function onYouTubeIframeAPIReady() {
+        	player = new YT.Player('player', {
+          	height: '390',
+          	width: '640',
+          	videoId: YT_id,
+          	events: {
+            	'onReady': onPlayerReady,
+            	'onStateChange': onPlayerStateChange
+          		}
+        	});
+      	}
+
+      	// function for when the video is ready
+      	function onPlayerReady(event) {
+        
+      	}
+
+      	// 5. The API calls this function when the player's state changes.
+      	//    The function indicates that when playing a video (state=1),
+      	//    the player should play for six seconds and then stop.
+      	var done = false;
+      	function onPlayerStateChange(event) {
+        	if (event.data == YT.PlayerState.PLAYING && !done) {
+          		done = true;
+        	}
+      	}	
+       	$('#Trailer').on('hide', function () {
+			player.stopVideo();
+	   	})
+
+    </script>
+
+
+	<!--end trailer-->
+</div><!--model body-->
+<div class="modal-footer">
+  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+</div><!--model id-->

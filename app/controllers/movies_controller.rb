@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
 
 		#get the pictures and the trailers for this particular movie
 		@pictures = Array.new 
-		@trailers = Array.new 
+		#@trailers = Array.new 
 
 		Picture.all.each do |picture|
 			if @movie.id == picture.movie_id
@@ -46,8 +46,8 @@ class MoviesController < ApplicationController
 		@pictures = @pictures.last
 		#currently only 1 trailer should be assigned to a movie
 		Trailer.all.each do |trailer|
-			if @movie_id == trailer.movie_id
-				@trailers << trailer
+			if @movie.id == trailer.movie_id
+				@trailers = trailer
 			end
 		end
 
