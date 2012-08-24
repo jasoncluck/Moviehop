@@ -5,6 +5,7 @@ Moviehop::Application.routes.draw do
 #root the application root to /movies
     root :to => "movies#index"
   
+    
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -15,11 +16,11 @@ Moviehop::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
     resources :movies do
-      resources :pictures   #pictures from the movie
-      resources :reviews    #reviews of the movie from RottenTomatoes etc
-      resources :trailers   #trailers from the movie
+      #resources :pictures   #pictures from the movie
+      #resources :reviews    #reviews of the movie from RottenTomatoes etc
+      #resources :trailers   #trailers from the movie
     end
-
+    
     
 
   # Sample resource route with options:

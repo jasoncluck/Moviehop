@@ -1,0 +1,30 @@
+<!--body content-->
+<!--split into span4 components - each having a movie-->
+        
+  <div class="row-fluid">
+    <!--Add in a hero unit-->
+    <div class="hero-unit">
+	  	<h1><%= "#{@movie.title}" %></h1>
+	  		<p>Tagline goes here!</p>
+	  		<p>
+	  			<div id="myModal" class="modal hide fade">
+			        <div class="modal-header">
+			          <a class="close" data-dismiss="modal" >&times;</a>
+			          <h3><%= "#{@movie.title} Trailer" %></h3>
+			        </div>
+			        <div class="modal-body">
+			          	<!--trailer-->
+			          	<center>
+			          		<iframe class="youtube-player" type="text/html" autoplay="1" width="640" height="390" src="	http://www.youtube.com/embed/sECzJY07oK4?modestbranding=1" frameborder="0" >
+							</iframe>
+						</center>
+						<!--end trailer-->
+			        </div>
+			        <div class="modal-footer">
+			          <a href="#" class="btn" data-dismiss="modal" >Close</a>
+			        </div>
+			      </div>
+			      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Watch the Trailer</a>
+	  		</p>
+	</div>  
+</div>
