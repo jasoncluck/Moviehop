@@ -15,16 +15,19 @@
 			        <div class="modal-body">
 			          	<!--trailer-->
 			          	<center>
-			          		<iframe class="youtube-player" type="text/html" autoplay="1" width="640" height="390" src="	http://www.youtube.com/embed/sECzJY07oK4?modestbranding=1" frameborder="0" >
+			          		<iframe class="youtube-player" type="text/html" autoplay="1" width="640" height="390" src="	http://www.youtube.com/embed/sECzJY07oK4?modestbranding=1&enablejsapi=1" frameborder="0" >
 							</iframe>
+
 						</center>
 						<!--end trailer-->
 			        </div>
 			        <div class="modal-footer">
 			          <a href="#" class="btn" data-dismiss="modal" >Close</a>
+			          <%= button_to_function "Close", "callPlayer("whateverID", "stopVideo")", :class => "btn" %>
 			        </div>
 			      </div>
 			      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Watch the Trailer</a>
+			      
 	  		</p>
 	</div>  
 </div>
