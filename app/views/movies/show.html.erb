@@ -13,17 +13,58 @@
 			          <h3><%= "#{@movie.title} Trailer" %></h3>
 			        </div>
 			        <div class="modal-body">
-			          	<!--trailer-->
-			          	<center>
-			          		<iframe class="youtube-player" type="text/html" autoplay="1" width="640" height="390" src="	http://www.youtube.com/embed/sECzJY07oK4?modestbranding=1&enablejsapi=1" frameborder="0" >
-							</iframe>
+		          		<!--trailer-->
+		          		<center>
+		          			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+					    	<div id="player"></div>
 
-						</center>
+					    	<script>
+					      	// 2. This code loads the IFrame Player API code asynchronously.
+					      	var tag = document.createElement('script');
+					      	tag.src = "//www.youtube.com/iframe_api";
+					      	var firstScriptTag = document.getElementsByTagName('script')[0];
+					      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+					      	// 3. This function creates an <iframe> (and YouTube player)
+					      	//    after the API code downloads.
+					      	var player;
+					      	function onYouTubeIframeAPIReady() {
+					        	player = new YT.Player('player', {
+					          	height: '390',
+					          	width: '640',
+					          	videoId: 'u1zgFlCw8Aw',
+					          	events: {
+					            	'onReady': onPlayerReady,
+					            	'onStateChange': onPlayerStateChange
+					          		}
+					        	});
+					      	}
+
+					      	// function for when the video is ready
+					      	function onPlayerReady(event) {
+					        
+					      	}
+
+					      	// 5. The API calls this function when the player's state changes.
+					      	//    The function indicates that when playing a video (state=1),
+					      	//    the player should play for six seconds and then stop.
+					      	var done = false;
+					      	function onPlayerStateChange(event) {
+					        	if (event.data == YT.PlayerState.PLAYING && !done) {
+					          		done = true;
+					        	}
+					      	}
+					       	$('#myModal').on('hide', function () {
+								player.stopVideo();
+						   	})
+
+					    </script>
+
+					</center>
 						<!--end trailer-->
 			        </div>
 			        <div class="modal-footer">
-			          <a href="#" class="btn" data-dismiss="modal" >Close</a>
-			          <%= button_to_function "Close", "callPlayer("whateverID", "stopVideo")", :class => "btn" %>
+			          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 			        </div>
 			      </div>
 			      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Watch the Trailer</a>
