@@ -3,13 +3,14 @@ Moviehop::Application.routes.draw do
   # first created -> highest priority.
 
 #root the application root to /movies
-    root :to => "movies#index"
+  root :to => "movies#index"
   
     
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
+  match 'movies/admin' => 'movies#view'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

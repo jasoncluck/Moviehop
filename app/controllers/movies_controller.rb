@@ -53,6 +53,22 @@ class MoviesController < ApplicationController
 
 	end
 
+	#view the list of current movies and have option to add or edit
+	def view
+
+	end
+
+	#add a new movie
+	def new
+
+	end
+
+	#edit an existing movie
+	def edit
+
+	end
+
+
 	def require_tMDB_key
 
 	end
