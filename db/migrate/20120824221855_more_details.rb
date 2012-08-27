@@ -21,7 +21,7 @@ class MoreDetails < ActiveRecord::Migration
     Picture.create!(:movie => Movie.find_by_title("Raiders of the Lost Ark"), :address => 'http://2.bp.blogspot.com/-THdWFmCkc6w/T_P5gt63n3I/AAAAAAAABlU/U5Vi193ffMM/s1600/raidersofthelostark.jpg')
     Picture.create!(:movie => Movie.find_by_title("The Help"), :address => 'http://3.bp.blogspot.com/-WR8zZHfB_j0/TlT9N7Lq97I/AAAAAAAAHWE/nRibyA2H8c0/s1600/the-help-pic09.jpg')
     Picture.create!(:movie => Movie.find_by_title("The Incredibles"), :address => 'http://www.classesandcareers.com/collegelife/wp-content/uploads/2010/05/the-incredibles-pixar-family.jpg')
-    Picture.create!(:movie => Movie.find_by_title("The Terminator"), :address => 'x_-http://moviewatchersguide.files.wordpress.com/2012/01/terminator.jpg')
+    Picture.create!(:movie => Movie.find_by_title("The Terminator"), :address => 'http://static.nme.com/images/gallery/TheTerminatorGb310311.jpg')
     Picture.create!(:movie => Movie.find_by_title("When Harry Met Sally"), :address => 'http://reeltalk.areavoices.com/files/2011/04/when-harry-met-sally-.jpg')
 
 
