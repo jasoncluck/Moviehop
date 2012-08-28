@@ -4,12 +4,7 @@
           <div class="row-fluid">
             <div class="span4">
              <h3><center><%= "#{movie.title}" %></center></h3>
-                <% @pictures.each do |picture| %>
-                    <% if picture.movie_id == movie.id %>
-                        <center><%= image_tag("#{picture.address}", :size =>"250x300" )%></center>
-                        <% break %>       
-                    <% end %>
-                <% end %>
+                <center><%= image_tag("#{movie.picture1}", :size =>"250x300" )%></center>
                 <br>
                     <center>
                         <a href=<%= "/movies/#{movie.id}" %> class="btn">Learn More</a>

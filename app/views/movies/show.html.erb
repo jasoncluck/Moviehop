@@ -1,6 +1,6 @@
 <!--create a javascript variable that is equal to the YT_id-->
 <%= javascript_tag do %>
-  YT_id = '<%= j @trailers.address %>';
+  YT_id = '<%= j @movie.trailer%>';
 <% end %>
 
 <!--body content-->
@@ -23,7 +23,7 @@
 		      	<br>
 				
 				<div class="span8">
-  					<%= image_tag("#{@pictures.address}", :size => "500x300")%>
+  					<%= image_tag("#{@movie.picture2}", :size => "500x300")%>
    				</div>
   			</div>   <!-- row-fluid-->  
   		</p>

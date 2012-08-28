@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
-	has_many :pictures
-	has_one :trailer
-	attr_accessible :title, :rating, :release_date, :tagline
+
+	attr_accessible :title, :rating, :release_date, :tagline, :trailer, :picture1, :picture2
+
+	
 end

@@ -2,14 +2,12 @@ class MoviesController < ApplicationController
 	
 	before_filter :setup
 	#before filter for tMDB key auth
-	before_filter :require_tMDB_key
+	#before_filter :require_tMDB_key
 
 	def setup
 		all_movies = Movie.all
 		all_movies = all_movies.sort { |a, b| a.title <=> b.title }
 
-		@pictures = Picture.all
-		
 		#create arrays for current movies and upcoming movies
 		@upcoming_movies = Array.new
 		@current_movies = Array.new
@@ -33,34 +31,16 @@ class MoviesController < ApplicationController
 	def show
 		id = params[:id];				#get the movie id
 		@movie = Movie.find_by_id(id) 	#get the movie from the database
-
-		#get the pictures and the trailers for this particular movie
-		@pictures = Array.new 
-		#@trailers = Array.new 
-
-		Picture.all.each do |picture|
-			if @movie.id == picture.movie_id
-				@pictures << picture
-			end
-		end
-		@pictures = @pictures.last
-		#currently only 1 trailer should be assigned to a movie
-		Trailer.all.each do |trailer|
-			if @movie.id == trailer.movie_id
-				@trailers = trailer
-			end
-		end
-
 	end
 
 	#view the list of current movies and have option to add or edit
-	def view
+	#def view
 
-	end
+	#end
 
 	#add a new movie
-	def new
-
+	def new		
+		@movie = Movie.new
 	end
 
 	#edit an existing movie
@@ -68,9 +48,20 @@ class MoviesController < ApplicationController
 
 	end
 
+	def create
+	    @movie = Movie.new(params[:movie])
 
-	def require_tMDB_key
+	    if @movie.save
+	    	flash[:notice] = "#{@movie.title} was successfully created."
+	    	#link the trailers and pictures to the movie's table
+			  redirect_to @movie
+	    else
+		    render :action => 'new'	   
+	    	redirect_to @movie
+	  	end
+ 	end
 
-	end
 
+	#def require_tMDB_key
+	#end
 end
