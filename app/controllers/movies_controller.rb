@@ -45,8 +45,15 @@ class MoviesController < ApplicationController
 
 	#edit an existing movie
 	def edit
-		@movie = Movie.find_by_id(id)
+		@movie = Movie.find_by_id(params[:id])
 	end
+
+	def update
+    	@movie = Movie.find params[:id]
+    	@movie.update_attributes!(params[:movie])
+    	flash[:notice] = "#{@movie.title} was successfully updated."
+    	redirect_to movie_path(@movie)
+  	end
 
 	def create
 	    @movie = Movie.new(params[:movie])

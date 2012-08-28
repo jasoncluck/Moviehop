@@ -8,7 +8,12 @@
                 <br>
                     <center>
                         <a href=<%= "/movies/#{movie.id}" %> class="btn">Learn More</a>
+
+                        <!-- Admin-only controls -->
+                        <%= link_to 'Edit', edit_movie_path(movie), :class => "btn btn-primary" %>                        
+
                         <%= link_to 'Delete', "/movies/#{movie.id}", :confirm => "Are you sure you want to destroy #{movie.title}?", :method => :delete, :class => "btn btn-danger" %>
+                        <!-- /Admin-only controls -->
                     </center>
                 <br>
                 <!--span offset-->
