@@ -57,9 +57,15 @@ class MoviesController < ApplicationController
 			  redirect_to @movie
 	    else
 		    render :action => 'new'	   
-	    	redirect_to @movie
 	  	end
  	end
+
+ 	def destroy
+	    @movie = Movie.find(params[:id])
+	    @movie.destroy
+	    flash[:notice] = "Movie '#{@movie.title}' deleted."
+	    redirect_to movies_path
+  	end
 
 
 	#def require_tMDB_key

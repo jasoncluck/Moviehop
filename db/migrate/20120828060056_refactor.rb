@@ -55,6 +55,7 @@
       movie.description  = "Amelie, an innocent and naive girl in Paris, with her own sense of justice, 
       decides to help those around her and along the way, discovers love."
       movie.release_date = "25 April 2001"
+      movie.save
       
       #add taglines 
       movie              = Movie.find_by_title("Aladdin")
