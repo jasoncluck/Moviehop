@@ -14,30 +14,17 @@
   	<%= f.label 'Released On' %>
   	<%= f.date_select :release_date %>
 
+  	<!--picture 1-->
+  	<%=	f.label("Picture 1 URL" ) %>
+  	<%= f.url_field :picture1 %>
 
+  	<!--picture 2-->
+  	<%=	f.label("Picture 2 URL" ) %>
+  	<%= f.url_field :picture2 %>
 
-  	<!-- start elements of @movie -->
-	<!-- picture 1 data -->
-	<%= f.fields_for @picture1 do |p| %>
-	  	
-	  	<%= p.label("Picture 1 URL") %>
-	  	<%= p.url_field :address %>
- 	<% end %>
-
-	<!-- picture 2 data -->
-	<%= f.fields_for @picture2 do |p2| %>
-	  	
-	  	<%= p2.label("Picture 2 URL") %>
-	  	<%= p2.url_field :address %>
-  	<% end %>
-	
-
-	<!-- trailer data -->
-	<%= f.fields_for @trailer do |t| %>
-	  	
-	  	<%= t.label("Trailer Youtube ID") %>
-	  	<%= t.text_field :address  %>
-  	<% end %>
+  	<!--Trailer-->
+  	<%=	f.label("Trailer" ) %>
+  	<%= f.text_field :trailer %>
 
   	<br>
 	<!-- submit the changes -->

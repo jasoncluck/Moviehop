@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
 
 	#edit an existing movie
 	def edit
-
+		@movie = Movie.find_by_id(id)
 	end
 
 	def create
