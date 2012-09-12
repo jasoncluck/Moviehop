@@ -1,27 +1,41 @@
 <!--body content-->
-      <!--split into span4 components - each having a movie-->
-        <% @current_movies.each do |movie| %>
-          <div class="row-fluid">
-            <div class="span4">
-             <h3><center><%= "#{movie.title}" %></center></h3>
-                <center><%= image_tag("#{movie.picture1}", :size =>"250x300" )%></center>
-                <br>
-                    <center>
-                        <a href=<%= "/movies/#{movie.id}" %> class="btn">Learn More</a>
-
-                        <!-- Admin-only controls -->
-                        <%= link_to 'Edit', edit_movie_path(movie), :class => "btn btn-primary" %>                        
-
-                        <%= link_to 'Delete', "/movies/#{movie.id}", :confirm => "Are you sure you want to destroy #{movie.title}?", :method => :delete, :class => "btn btn-danger" %>
-                        <!-- /Admin-only controls -->
-                    </center>
-                <br>
-                <!--span offset-->
-                <div class="span2">
-                </div>
-                <%= "Rating: #{movie.rating}" %><br>
-                <%= "Showtimes: 1:00, 3:00, 5:00, 7:00, 9:00" %>
-                <br><br><br>
-            </div>
-        <% end %>  
+    <!--Big button for adding new movies-->
+    <p>
+        <!--only admins should be able to add movies-->
+        <div class = "span12 maintext">
+             <%= link_to 'Add another movie', new_movie_path(), :class => "btn btn-block btn-primary" %>  
         </div>
+    </p>
+    <br>
+
+    <% i = 0  #counter var %>    
+    <% @current_movies.each do |movie| %>
+        <% if i % 3 == 0 %>
+            <div class="row span12">
+        <% end %>
+            <div class="span4 maintext">
+                <h3><%= "#{movie.title}" %></h3>
+                <%= image_tag("#{movie.picture1}", :size =>"250x300" )%>
+                <p>
+                    <br>
+                    <%= link_to 'Learn More', movie_path(movie), :class => "btn" %>                     
+                    <!-- Admin-only controls -->
+                    <!-- Using a partial so this can be conditionally shown - movie passed in as local var -->
+                    <%= render 'shared/admin_controls', :movie => movie  %>
+                    <!-- /Admin-only controls -->
+                </p>    
+                <p>
+
+                <!--span offset-->
+                <div class="span12">
+                    <%= "Rating: #{movie.rating}" %><br>
+                    <%= "Showtimes: 1:00, 3:00, 5:00, 7:00, 9:00" %>
+                </p>
+                </div> <!-- span12 -->
+            </div> <!--span4-->
+        <% i = i + 1 %>
+        <% if i % 3 == 0 %>
+            </div><!--row div-->
+        <% end %>
+    <% end %>  
+    

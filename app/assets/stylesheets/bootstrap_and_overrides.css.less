@@ -32,24 +32,23 @@ body {
 // @linkColor: #ff0000;
 
 .sidebar-nav-fixed {
-     position:fixed;
-     top:60px;
-     width:12.47%;
- }
+    position:fixed;
+    top:60px;
+    width:12.47%;
+}
 
- @media (max-width: 767px) {
-     .sidebar-nav-fixed {
-         width:auto;
-     }
- }
+@media (max-width: 767px) {
+    .sidebar-nav-fixed {
+        position:static;
+        width:auto;
+    }
+}
 
-
- @media (max-width: 979px) {
-     .sidebar-nav-fixed {
-         position:static;
-        width: auto;
-     }
- }
+@media (max-width: 979px) {
+    .sidebar-nav-fixed {
+        top:70px;
+    }
+}
 
  .modal { 
     max-height: 800px; 
@@ -60,4 +59,9 @@ body {
 
  .maintext {
     text-align:center
+ }
+
+ .picture {
+
+ 
  }

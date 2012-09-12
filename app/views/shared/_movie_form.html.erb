@@ -1,0 +1,34 @@
+<%= form_for @movie do |f| %>
+  <!-- show the error message partial if necessary -->
+      <%= render 'shared/error_messages' %>
+
+    	<%= f.label("Title") %>
+    	<%= f.text_field :title %>
+
+    	<%= f.label("Tagline") %>
+    	<%= f.text_field :tagline %>
+  <!-- show the error message partial if necessary -->
+    	<%= f.label("Rating") %>
+
+    	<%= f.select  :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17'] %>
+
+    	<%= f.label 'Released On' %>
+    	<%= f.date_select :release_date %>
+
+    	<!--picture 1-->
+    	<%=	f.label("Picture 1 URL" ) %>
+    	<%= f.url_field :picture1 %>
+
+    	<!--picture 2-->
+    	<%=	f.label("Picture 2 URL" ) %>
+    	<%= f.url_field :picture2 %>
+
+    	<!--Trailer-->
+    	<%=	f.label("Trailer Youtube ID" ) %>
+    	<%= f.text_field :trailer %>
+
+    	<br>
+  	<!-- submit the changes -->
+  	<%= f.submit "Save Changes" %>	
+	 <br><br><br>
+<% end %>
