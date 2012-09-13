@@ -9,7 +9,8 @@ gem 'rails', '3.2.6'
 gem 'capybara'
 gem 'factory_girl_rails'
 gem 'ruby-tmdb'
-#gem "oa-oauth"
+gem 'devise'
+gem "omniauth-facebook"
 
 # Gems used only for assets and not required
 # in production environments by default.
