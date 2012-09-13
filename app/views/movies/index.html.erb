@@ -9,8 +9,6 @@
     <br>
 
     <!--facebook login - will be moved later -->
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-
     <% i = 0  #counter var %>    
     <% @current_movies.each do |movie| %>
         <% if i % 3 == 0 %>
