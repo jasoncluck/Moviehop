@@ -5,8 +5,11 @@
     	<%= f.label("Title") %>
     	<%= f.text_field :title %>
 
-    	<%= f.label("Tagline") %>
-    	<%= f.text_field :tagline %>
+      <%= f.label("Tagline") %>
+      <%= f.text_field :tagline %>
+
+    	<%= f.label("Showtimes 1:00, 3:00, etc...") %>
+    	<%= f.text_field :showtimes %>
   <!-- show the error message partial if necessary -->
     	<%= f.label("Rating") %>
 
@@ -24,7 +27,7 @@
     	<%= f.url_field :picture2 %>
 
     	<!--Trailer-->
-    	<%=	f.label("Trailer Youtube ID" ) %>
+    	<%=	f.label("Trailer Youtube ID") %>
     	<%= f.text_field :trailer %>
 
     	<br>

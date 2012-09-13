@@ -57,7 +57,7 @@
       movie.release_date = "25 April 2001"
       movie.save
       
-      #add taglines 
+      #add tagline 
       movie              = Movie.find_by_title("Aladdin")
       movie.tagline      = "A diamond in the rough"
       movie.save
